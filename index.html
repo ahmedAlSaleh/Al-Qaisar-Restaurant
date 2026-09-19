@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grand Palace &mdash; Four Seasons Fine Dining</title>
+<meta name="description" content="The Grand Palace at Four Seasons &mdash; A transcendent fine dining experience where culinary artistry meets architectural magnificence.">
+<meta name="theme-color" content="#080808">
+
+<!-- Preconnect to speed up CDN & asset fetches -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Preload hero background image -->
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=75&auto=format&fit=crop">
+</head>
+<body>
+
+<!-- PRELOADER (Ultra-fast luxury reveal) -->
+<div id="preloader" role="status" aria-label="Loading experience">
+  <div class="pre-logo">THE GRAND PALACE</div>
+  <div class="pre-sub">Four Seasons &nbsp;&middot;&nbsp; Fine Dining Experience</div>
+  <div class="pre-bar"><div class="pre-fill"></div></div>
+  <button class="pre-skip" id="preSkip" title="Skip animation">Skip &rarr;</button>
+</div>
+
+<!-- CUSTOM CURSOR (Desktop only) -->
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-f" aria-hidden="true"></div>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mob-nav" id="mobNav" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <button class="mob-close" id="mobX" aria-label="Close menu">&#x2715;</button>
+  <ul class="mob-links">
+    <li><a href="#story" onclick="cM()">Our Story</a></li>
+    <li><a href="#chef" onclick="cM()">The Chef</a></li>
+    <li><a href="#signature" onclick="cM()">Signature</a></li>
+    <li><a href="#menu" onclick="cM()">Menu</a></li>
+    <li><a href="#gallery" onclick="cM()">Gallery</a></li>
+    <li><a href="#reviews" onclick="cM()">Reviews</a></li>
+    <li><a href="#reserve" onclick="cM()">Reserve</a></li>
+  </ul>
+  <a href="#reserve" class="btn-g mob-cta" onclick="cM()"><span>Reserve a Table</span></a>
+</div>
+
+<!-- NAVIGATION -->
+<nav id="nav" role="navigation" aria-label="Main Navigation">
+  <a href="#hero" class="nav-logo"><span>The Grand Palace</span>FOUR SEASONS</a>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#chef">The Chef</a></li>
+    <li><a href="#signature">Signature</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <button class="nav-cta" onclick="scrollToSection('#reserve')">Reserve a Table</button>
+  <button class="nav-tog" id="navT" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<header id="hero">
+  <canvas id="hCanvas" aria-hidden="true"></canvas>
+  <div class="hero-bg" id="hBg" aria-hidden="true"></div>
+  <div class="hero-ov" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="h-eye" id="hE">Four Seasons &nbsp;&middot;&nbsp; Fine Dining &nbsp;&middot;&nbsp; Est. 1994</p>
+    <h1 class="h-title" id="hT">The Grand<em>Palace</em></h1>
+    <p class="h-sub" id="hS">Where Culinary Artistry Meets Architectural Magnificence</p>
+    <div class="h-btns" id="hB">
+      <a href="#reserve" class="btn-g"><span>Reserve Your Table</span></a>
+      <a href="#signature" class="btn-o">Explore the Menu</a>
+    </div>
+  </div>
+  <div class="scroll-ind" id="sInd" aria-hidden="true">
+    <p>Scroll to discover</p>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<main>
+  <!-- CHANDELIER REVEAL -->
+  <section id="reveal">
+    <div class="ch-scene">
+      <div class="ch-bg" aria-hidden="true"></div>
+      <div class="ch-wrap" id="chW">
+        <div class="ch-chain"></div>
+        <div class="ch-body">
+          <div class="ch-tier">
+            <div class="c-drop"><div class="c-wire" style="height:28px"></div><div class="xtal" style="height:26px;--d:0s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:38px"></div><div class="xtal" style="height:22px;--d:.3s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:32px"></div><div class="xtal" style="height:30px;--d:.6s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:24px"></div><div class="xtal" style="height:24px;--d:.9s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:44px"></div><div class="xtal" style="height:28px;--d:1.2s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:30px"></div><div class="xtal" style="height:20px;--d:.4s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:36px"></div><div class="xtal" style="height:32px;--d:.7s"></div></div>
+          </div>
+          <div class="ch-tier" style="width:145%;margin-left:-22%">
+            <div class="c-drop"><div class="c-wire" style="height:48px"></div><div class="xtal" style="height:36px;--d:.2s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:34px"></div><div class="xtal" style="height:28px;--d:.5s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:54px"></div><div class="xtal" style="height:42px;--d:.8s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:40px"></div><div class="xtal" style="height:32px;--d:1.1s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:46px"></div><div class="xtal" style="height:36px;--d:.3s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:30px"></div><div class="xtal" style="height:26px;--d:.6s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:58px"></div><div class="xtal" style="height:40px;--d:.9s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:40px"></div><div class="xtal" style="height:30px;--d:1.3s"></div></div>
+            <div class="c-drop"><div class="c-wire" style="height:36px"></div><div class="xtal" style="height:34px;--d:.1s"></div></div>
+          </div>
+        </div>
+        <div class="ch-glow" aria-hidden="true"></div>
+      </div>
+      <div class="ch-floor" aria-hidden="true"></div>
+      <div class="ch-copy rv">
+        <span class="lbl">The Arrival</span>
+        <h2 class="ttl" style="text-align:center">Enter a World of<br><em>Timeless Elegance</em></h2>
+        <div class="div-line"></div>
+        <p class="ch-desc">Step beneath our iconic crystal chandelier &mdash; 2,400 hand-cut Bohemian crystals casting a golden warmth that has welcomed the world&rsquo;s most discerning guests for over three decades.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROYAL TABLE (3D DISH) -->
+  <section id="table">
+    <div class="table-bg" aria-hidden="true"></div>
+    <div class="table-grid">
+      <div class="dish-wrap">
+        <canvas id="dCanvas" aria-label="3D interactive dish"></canvas>
+        <div class="steam-box" aria-hidden="true">
+          <div class="s-p" style="--dur:3s;--d:0s;--x:28%;--dr:7px"></div>
+          <div class="s-p" style="--dur:3.6s;--d:.7s;--x:50%;--dr:-5px"></div>
+          <div class="s-p" style="--dur:2.9s;--d:1.4s;--x:70%;--dr:9px"></div>
+          <div class="s-p" style="--dur:3.3s;--d:.3s;--x:38%;--dr:-7px"></div>
+          <div class="s-p" style="--dur:4s;--d:1s;--x:62%;--dr:4px"></div>
+        </div>
+        <span class="dish-cap">Drag to rotate &nbsp;&middot;&nbsp; Scroll to deconstruct</span>
+      </div>
+      <div class="table-info">
+        <span class="lbl rv">The Royal Table</span>
+        <h2 class="ttl rv d1">Crafted With<br><em>Obsessive</em> Precision</h2>
+        <div class="div-line l rv d2"></div>
+        <p class="rv d3 body-txt">Each plate is a canvas. Our Executive Chef transforms the world&rsquo;s finest ingredients into transcendent experiences that engage every sense.</p>
+        <div class="ing-list">
+          <div class="ing rv d1"><span class="ing-n">01</span><div><h4>A5 Wagyu Tenderloin</h4><p>Miyazaki Prefecture, Japan &middot; Marble Score 12</p></div></div>
+          <div class="ing rv d2"><span class="ing-n">02</span><div><h4>Black P&eacute;rigord Truffle</h4><p>Dordogne, France &middot; Peak Winter Harvest</p></div></div>
+          <div class="ing rv d3"><span class="ing-n">03</span><div><h4>Iranian Beluga Caviar</h4><p>Caspian Sea &middot; 00 Grade Excellence</p></div></div>
+          <div class="ing rv d4"><span class="ing-n">04</span><div><h4>Saffron Gold Sauce</h4><p>Kashmir Reserve &middot; 24K Gold Leaf Finish</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINE -->
+  <section id="wine">
+    <div class="wine-glow" aria-hidden="true"></div>
+    <div class="wine-grid">
+      <div>
+        <span class="lbl rv">Sommelier Selection</span>
+        <h2 class="ttl rv d1">A Cellar of<br><em>Rare Vintages</em></h2>
+        <div class="div-line l rv d2"></div>
+        <p class="rv d3 body-txt">Our master sommelier has curated over 1,200 labels from the world&rsquo;s most celebrated wine regions. From the golden valleys of Bordeaux to the volcanic soils of Barolo, each bottle tells a story of terroir and time.</p>
+        <div class="w-stats rv d4">
+          <div class="w-stat"><span class="w-stat-n">1,200+</span><span class="w-stat-l">Wine Labels</span></div>
+          <div class="w-stat"><span class="w-stat-n">48</span><span class="w-stat-l">Wine Regions</span></div>
+          <div class="w-stat"><span class="w-stat-n">1962</span><span class="w-stat-l">Oldest Vintage</span></div>
+        </div>
+      </div>
+      <div class="wine-vis">
+        <div class="rv wine-glass-wrap">
+          <svg viewBox="0 0 130 210" fill="none" aria-hidden="true">
+            <path d="M25 8 Q16 55 32 96 Q48 136 65 150 Q82 136 98 96 Q114 55 105 8 Z" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.14)" stroke-width=".8"/>
+            <path d="M62 148 Q64 149 65 150 Q66 149 68 148 Q66 147 65 147 Q64 147 62 148 Z" fill="rgba(110,0,18,.72)" opacity="0">
+              <animate attributeName="d" from="M62 148 Q64 149 65 150 Q66 149 68 148 Q66 147 65 147 Q64 147 62 148 Z" to="M35 124 Q49 146 65 150 Q81 146 95 124 Q88 109 65 109 Q42 109 35 124 Z" dur="2.5s" begin="1.5s" fill="freeze"/>
+              <animate attributeName="opacity" from="0" to=".88" dur="2.5s" begin="1.5s" fill="freeze"/>
+            </path>
+            <circle cx="61" cy="133" r="1.4" fill="rgba(255,255,255,.28)" opacity="0">
+              <animate attributeName="cy" values="133;109" dur="2.2s" begin="3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".28;0" dur="2.2s" begin="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="68" cy="138" r=".9" fill="rgba(255,255,255,.22)" opacity="0">
+              <animate attributeName="cy" values="138;112" dur="2.8s" begin="3.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".22;0" dur="2.8s" begin="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <line x1="65" y1="150" x2="65" y2="186" stroke="rgba(255,255,255,.18)" stroke-width="2.5"/>
+            <ellipse cx="65" cy="188" rx="26" ry="4.5" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.12)" stroke-width=".5"/>
+            <path d="M32 18 Q29 42 32 65" stroke="rgba(255,255,255,.13)" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="w-img rv d2">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=700&q=75&auto=format&fit=crop" alt="Fine wine cellar selection" loading="lazy" decoding="async" width="700" height="280">
+          <div class="w-img-grad" aria-hidden="true"></div>
+          <div class="w-img-cap"><h5>Ch&acirc;teau P&eacute;trus &middot; 1989</h5><span>Pomerol, Bordeaux &mdash; Premier Grand Cru</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="story-bg" aria-hidden="true"></div>
+    <div class="story-grid">
+      <div class="story-left rv">
+        <span class="story-yr" aria-hidden="true">1994</span>
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=75&auto=format&fit=crop" alt="The Grand Palace dining room" class="story-main" loading="lazy" decoding="async" width="700" height="875">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=350&q=70&auto=format&fit=crop" alt="Signature fine dining plate" class="story-accent" loading="lazy" decoding="async" width="350" height="260">
+      </div>
+      <div class="story-right">
+        <span class="lbl rv">Our Heritage</span>
+        <h2 class="ttl rv d1">Thirty Years of<br><em>Culinary</em> Excellence</h2>
+        <div class="div-line l rv d2"></div>
+        <p class="story-body rv d3">The Grand Palace was born from a single vision: to create a dining destination worthy of Four Seasons&rsquo; uncompromising standard of luxury. Founded in 1994, the restaurant was conceived as a stage where the world&rsquo;s greatest culinary talents perform at the highest level.</p>
+        <p class="story-body rv d4">Over three decades, we have hosted royalty, heads of state, and the world&rsquo;s most celebrated artists. Each visit is a chapter in a story of extraordinary hospitality &mdash; a story that continues to unfold with every plate we serve.</p>
+        <div class="story-stats rv d5">
+          <div class="s-stat"><span class="s-stat-n">30+</span><span class="s-stat-l">Years Excellence</span></div>
+          <div class="s-stat"><span class="s-stat-n">3&#9733;</span><span class="s-stat-l">Michelin Stars</span></div>
+          <div class="s-stat"><span class="s-stat-n">#4</span><span class="s-stat-l">World&rsquo;s Best 50</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEF -->
+  <section id="chef">
+    <div class="chef-bg" id="chefBg" aria-hidden="true"></div>
+    <div class="chef-ov" aria-hidden="true"></div>
+    <div class="chef-cnt">
+      <p class="chef-tag rv">Executive Chef</p>
+      <span class="chef-name rv d1">Antoine Dubois</span>
+      <div class="div-line l rv d2"></div>
+      <p class="chef-bio rv d3">Born in Lyon and trained under the legendary Paul Bocuse, Chef Antoine Dubois brings thirty years of mastery to The Grand Palace kitchen. His philosophy: let the finest ingredients speak, then whisper poetry into each plate through technique and an obsessive pursuit of perfection.</p>
+      <div class="chef-awards rv d4">
+        <div class="ca"><div class="ca-icon">&#9733;</div><div class="ca-txt"><strong>3 Michelin Stars</strong>Consecutive 2019&ndash;2026</div></div>
+        <div class="ca"><div class="ca-icon">&#9670;</div><div class="ca-txt"><strong>James Beard Award</strong>Outstanding Chef 2022</div></div>
+        <div class="ca"><div class="ca-icon">&#8853;</div><div class="ca-txt"><strong>World&rsquo;s 50 Best</strong>Chef of the Year 2024</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE DISHES -->
+  <section id="signature">
+    <div class="sig-hd">
+      <span class="lbl rv">Culinary Masterworks</span>
+      <h2 class="ttl rv d1">Signature <em>Creations</em></h2>
+      <div class="div-line rv d2"></div>
+    </div>
+    <div class="sig-grid">
+      <div class="dc lg">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=75&auto=format&fit=crop" alt="Wagyu Tenderloin Rossini" class="dc-img" loading="lazy" decoding="async" width="800" height="1066">
+        <div class="dc-ov" aria-hidden="true"></div>
+        <div class="dc-info"><span class="dc-lbl">Chef&rsquo;s Signature</span><h3 class="dc-title">Wagyu Tenderloin<br>Rossini</h3><p class="dc-desc">A5 Wagyu, Black P&eacute;rigord Truffle, Foie Gras, Ch&acirc;teau P&eacute;trus Reduction</p><span class="dc-price">AED 680</span></div>
+      </div>
+      <div class="dc">
+        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=500&q=75&auto=format&fit=crop" alt="Maine Lobster Bisque" class="dc-img" loading="lazy" decoding="async" width="500" height="666">
+        <div class="dc-ov" aria-hidden="true"></div>
+        <div class="dc-info"><span class="dc-lbl">Seafood</span><h3 class="dc-title">Maine Lobster<br>Bisque</h3><p class="dc-desc">Whole Maine Lobster, Saffron Bisque, Cognac Foam, Oscietra Caviar</p><span class="dc-price">AED 420</span></div>
+      </div>
+      <div class="dc">
+        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500&q=75&auto=format&fit=crop" alt="Cote de Boeuf" class="dc-img" loading="lazy" decoding="async" width="500" height="666">
+        <div class="dc-ov" aria-hidden="true"></div>
+        <div class="dc-info"><span class="dc-lbl">Grill</span><h3 class="dc-title">C&ocirc;te de B&oelig;uf<br>Grand Palace</h3><p class="dc-desc">Dry-Aged 60 Days, Truffle Butter, Bone Marrow, Heritage Vegetables</p><span class="dc-price">AED 780</span></div>
+      </div>
+      <div class="dc">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&q=75&auto=format&fit=crop" alt="Vanilla Souffle" class="dc-img" loading="lazy" decoding="async" width="500" height="666">
+        <div class="dc-ov" aria-hidden="true"></div>
+        <div class="dc-info"><span class="dc-lbl">Dessert</span><h3 class="dc-title">Souffl&eacute; Glac&eacute;<br>Vanille Royale</h3><p class="dc-desc">Madagascar Vanilla, 24K Gold Leaf, Champagne Sorbet, Praline</p><span class="dc-price">AED 185</span></div>
+      </div>
+      <div class="dc">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=75&auto=format&fit=crop" alt="Tagliolini Truffle Pasta" class="dc-img" loading="lazy" decoding="async" width="500" height="666">
+        <div class="dc-ov" aria-hidden="true"></div>
+        <div class="dc-info"><span class="dc-lbl">Pasta</span><h3 class="dc-title">Tagliolini al<br>Tartufo Nero</h3><p class="dc-desc">Hand-Rolled Egg Pasta, Shaved Black Truffle, Aged Parmesan</p><span class="dc-price">AED 320</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="menu-hd">
+      <span class="lbl rv">&#192; La Carte</span>
+      <h2 class="ttl rv d1">The <em>Menu</em></h2>
+      <div class="div-line rv d2"></div>
+    </div>
+    <div class="menu-tabs" role="tablist">
+      <button class="m-tab on" data-t="ap" role="tab" aria-selected="true">Appetizers</button>
+      <button class="m-tab" data-t="ma" role="tab" aria-selected="false">Main Courses</button>
+      <button class="m-tab" data-t="de" role="tab" aria-selected="false">Desserts</button>
+      <button class="m-tab" data-t="bv" role="tab" aria-selected="false">Beverages</button>
+    </div>
+    <div class="m-panel on" id="t-ap">
+      <div class="m-grid">
+        <div class="mi"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=180&q=75&auto=format&fit=crop" alt="Beluga Caviar" loading="lazy" decoding="async" width="88" height="70"><div><h3>Beluga Caviar</h3><p>Iranian Caspian, Blinis, Cr&egrave;me Fra&icirc;che, Chives</p><div class="m-tags"><span class="tag">Luxury</span><span class="tag">Seasonal</span></div></div><span class="mi-price">AED 480</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=180&q=75&auto=format&fit=crop" alt="Oysters" loading="lazy" decoding="async" width="88" height="70"><div><h3>Oysters Rockefeller</h3><p>Fine de Claire N&deg;2, Spinach, Pernod Cream, Champagne Mignonette</p><div class="m-tags"><span class="tag">Seafood</span></div></div><span class="mi-price">AED 220</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=180&q=75&auto=format&fit=crop" alt="Foie Gras Torchon" loading="lazy" decoding="async" width="88" height="70"><div><h3>Foie Gras Torchon</h3><p>Duck Foie Gras, Sauternes Gel&eacute;e, Brioche Toast, Micro Greens</p><div class="m-tags"><span class="tag">Classic</span><span class="tag">French</span></div></div><span class="mi-price">AED 280</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=180&q=75&auto=format&fit=crop" alt="Bluefin Tuna Tartare" loading="lazy" decoding="async" width="88" height="70"><div><h3>Bluefin Tuna Tartare</h3><p>Otoro, Wasabi Cr&egrave;me, Sesame Crisp, Yuzu Vinaigrette</p><div class="m-tags"><span class="tag">Japanese</span></div></div><span class="mi-price">AED 195</span></div>
+      </div>
+    </div>
+    <div class="m-panel" id="t-ma">
+      <div class="m-grid">
+        <div class="mi"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=180&q=75&auto=format&fit=crop" alt="A5 Wagyu" loading="lazy" decoding="async" width="88" height="70"><div><h3>A5 Wagyu Tenderloin</h3><p>Miyazaki, Truffle Jus, Potato Dauphine, White Asparagus</p><div class="m-tags"><span class="tag">Signature</span></div></div><span class="mi-price">AED 680</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=180&q=75&auto=format&fit=crop" alt="Rack of Lamb" loading="lazy" decoding="async" width="88" height="70"><div><h3>Rack of Lamb Proven&ccedil;al</h3><p>New Zealand, Herbs Cro&ucirc;te, Lamb Jus, Ratatouille</p><div class="m-tags"><span class="tag">Lamb</span></div></div><span class="mi-price">AED 450</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=180&q=75&auto=format&fit=crop" alt="Whole Lobster" loading="lazy" decoding="async" width="88" height="70"><div><h3>Whole Roasted Lobster</h3><p>Maine, Butter Thermidor, Truffle Risotto, Chervil</p><div class="m-tags"><span class="tag">Seafood</span></div></div><span class="mi-price">AED 580</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=180&q=75&auto=format&fit=crop" alt="Wild Halibut" loading="lazy" decoding="async" width="88" height="70"><div><h3>Wild Atlantic Halibut</h3><p>Champagne Beurre Blanc, Saffron Vegetables, Micro Herbs</p><div class="m-tags"><span class="tag">Fish</span></div></div><span class="mi-price">AED 380</span></div>
+      </div>
+    </div>
+    <div class="m-panel" id="t-de">
+      <div class="m-grid">
+        <div class="mi"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=180&q=75&auto=format&fit=crop" alt="Souffle" loading="lazy" decoding="async" width="88" height="70"><div><h3>Grand Palace Souffl&eacute;</h3><p>Madagascar Vanilla, Cr&egrave;me Anglaise, Wild Raspberries</p><div class="m-tags"><span class="tag">Warm</span></div></div><span class="mi-price">AED 145</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=180&q=75&auto=format&fit=crop" alt="Chocolate Sphere" loading="lazy" decoding="async" width="88" height="70"><div><h3>Valrhona Chocolate Sphere</h3><p>Manjari 64%, Praline Mousse, Salted Caramel, 24K Gold Leaf</p><div class="m-tags"><span class="tag">Chocolate</span></div></div><span class="mi-price">AED 185</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=180&q=75&auto=format&fit=crop" alt="Millefeuille" loading="lazy" decoding="async" width="88" height="70"><div><h3>Millefeuille Royal</h3><p>Puff Pastry, Diplomate Cream, Wild Strawberries, Champagne Jelly</p><div class="m-tags"><span class="tag">French</span></div></div><span class="mi-price">AED 165</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=180&q=75&auto=format&fit=crop" alt="Mignardises" loading="lazy" decoding="async" width="88" height="70"><div><h3>Mignardises Collection</h3><p>Twelve House Petit Fours, Seasonal Confections, Artisan Truffles</p><div class="m-tags"><span class="tag">Petit Fours</span></div></div><span class="mi-price">AED 120</span></div>
+      </div>
+    </div>
+    <div class="m-panel" id="t-bv">
+      <div class="m-grid">
+        <div class="mi"><img src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=180&q=75&auto=format&fit=crop" alt="Dom Perignon" loading="lazy" decoding="async" width="88" height="70"><div><h3>Dom P&eacute;rignon 2013</h3><p>&Eacute;pernay, France &middot; Blanc de Blancs &middot; Per Glass / Bottle</p><div class="m-tags"><span class="tag">Champagne</span></div></div><span class="mi-price">AED 280</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=180&q=75&auto=format&fit=crop" alt="Chateau Margaux" loading="lazy" decoding="async" width="88" height="70"><div><h3>Ch&acirc;teau Margaux 2015</h3><p>Margaux AOC, Bordeaux &middot; First Growth &middot; Full Bottle</p><div class="m-tags"><span class="tag">Bordeaux</span></div></div><span class="mi-price">AED 3,200</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=180&q=75&auto=format&fit=crop" alt="Palace Elixir" loading="lazy" decoding="async" width="88" height="70"><div><h3>Palace Elixir</h3><p>Sparkling Jasmine, Rose Water, Saffron Honey, Gold Flakes</p><div class="m-tags"><span class="tag">Non-Alcoholic</span></div></div><span class="mi-price">AED 85</span></div>
+        <div class="mi"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=180&q=75&auto=format&fit=crop" alt="Macallan" loading="lazy" decoding="async" width="88" height="70"><div><h3>Macallan 25 Year</h3><p>Speyside Single Malt &middot; Sherry Oak Cask &middot; 43% ABV</p><div class="m-tags"><span class="tag">Whisky</span></div></div><span class="mi-price">AED 950</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMBIANCE -->
+  <section id="ambiance">
+    <div class="amb-slide on" data-s="d">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=75&auto=format&fit=crop" alt="The Grand Dining Hall" loading="lazy" decoding="async" width="1400" height="800">
+      <div class="amb-ov" aria-hidden="true"></div>
+      <div class="amb-copy"><h2>The Grand<br><em>Dining Hall</em></h2><p>140 seats arranged in a breathtaking space of black marble, bespoke gold fixtures, and hand-painted ceiling murals.</p></div>
+    </div>
+    <div class="amb-slide" data-s="k">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=75&auto=format&fit=crop" alt="Open Kitchen Theatre" loading="lazy" decoding="async" width="1400" height="800">
+      <div class="amb-ov" aria-hidden="true"></div>
+      <div class="amb-copy"><h2>The Open<br><em>Kitchen Theatre</em></h2><p>Watch Chef Antoine and his brigade of 24 create culinary masterworks in real time. The chef&rsquo;s table seats just 8 privileged guests.</p></div>
+    </div>
+    <div class="amb-slide" data-s="n">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1400&q=75&auto=format&fit=crop" alt="Night Terrace" loading="lazy" decoding="async" width="1400" height="800">
+      <div class="amb-ov" aria-hidden="true"></div>
+      <div class="amb-copy"><h2>The Night<br><em>Terrace</em></h2><p>Al fresco dining under the stars with an unforgettable view of the city skyline.</p></div>
+    </div>
+    <div class="amb-ctrl">
+      <button class="amb-btn on" data-t="d">Dining Hall</button>
+      <span aria-hidden="true" class="amb-sep">&middot;</span>
+      <button class="amb-btn" data-t="k">Open Kitchen</button>
+      <span aria-hidden="true" class="amb-sep">&middot;</span>
+      <button class="amb-btn" data-t="n">Night Terrace</button>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="gal-hd">
+      <span class="lbl rv">Visual Journey</span>
+      <h2 class="ttl rv d1">The <em>Gallery</em></h2>
+      <div class="div-line rv d2"></div>
+    </div>
+    <div class="gal-track">
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=75&auto=format&fit=crop" alt="Restaurant interior" loading="lazy" decoding="async" width="700" height="466"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75&auto=format&fit=crop" alt="Fine dining plate" loading="lazy" decoding="async" width="600" height="400"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=75&auto=format&fit=crop" alt="Wagyu steak" loading="lazy" decoding="async" width="600" height="400"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=75&auto=format&fit=crop" alt="Beluga caviar" loading="lazy" decoding="async" width="600" height="400"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=75&auto=format&fit=crop" alt="Seafood selection" loading="lazy" decoding="async" width="600" height="400"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=75&auto=format&fit=crop" alt="Professional kitchen" loading="lazy" decoding="async" width="700" height="466"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=75&auto=format&fit=crop" alt="Elegant dessert" loading="lazy" decoding="async" width="600" height="400"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+      <div class="gi" onclick="oLB(this)"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=75&auto=format&fit=crop" alt="Wine collection" loading="lazy" decoding="async" width="600" height="400"><div class="gi-ov"><div class="gi-ico">&#8853;</div></div></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="rev-hd">
+      <span class="lbl rv">Guest Voices</span>
+      <h2 class="ttl rv d1">The <em>Experience</em></h2>
+      <div class="div-line rv d2"></div>
+    </div>
+    <div class="rev-car">
+      <div class="rv-card on"><div class="rv-stars" aria-label="5 stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rv-quote">&ldquo;The Grand Palace transcends the concept of dining. It is a performance, a memory, a privilege. Chef Antoine&rsquo;s Wagyu Rossini moved me to silence. I have dined at many three-starred establishments &mdash; this is different. This is art.&rdquo;</p><span class="rv-author">HRH Prince Faisal Al-Rashid</span><span class="rv-origin">Riyadh, Saudi Arabia &middot; Private Dining Room</span></div>
+      <div class="rv-card"><div class="rv-stars" aria-label="5 stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rv-quote">&ldquo;I&rsquo;ve reviewed restaurants across five continents for thirty years. The Grand Palace is one of perhaps a dozen restaurants in the world that genuinely deserves its reputation. The chandelier alone is worth the journey.&rdquo;</p><span class="rv-author">Sylvia Marchetti</span><span class="rv-origin">Chief Restaurant Critic, La Monde Gastronomique &middot; Paris</span></div>
+      <div class="rv-card"><div class="rv-stars" aria-label="5 stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rv-quote">&ldquo;Our anniversary dinner will live with us forever. The staff somehow knew it was our 25th and surprised us with a personalized menu. The warmth here is as extraordinary as the food.&rdquo;</p><span class="rv-author">Jonathan &amp; Elizabeth Hartley</span><span class="rv-origin">London, United Kingdom &middot; Anniversary Dinner</span></div>
+      <div class="rv-card"><div class="rv-stars" aria-label="5 stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rv-quote">&ldquo;The tasting menu is a nine-act opera &mdash; each course a crescendo more beautiful than the last. The Beluga caviar alone could sustain an entire career of memories.&rdquo;</p><span class="rv-author">Marco Chen</span><span class="rv-origin">Hong Kong &middot; Nine-Course Tasting Menu</span></div>
+      <div class="rv-dots" role="tablist">
+        <button class="rv-dot on" data-i="0" aria-label="Review 1"></button>
+        <button class="rv-dot" data-i="1" aria-label="Review 2"></button>
+        <button class="rv-dot" data-i="2" aria-label="Review 3"></button>
+        <button class="rv-dot" data-i="3" aria-label="Review 4"></button>
+      </div>
+    </div>
+    <div class="rv-logos" aria-label="Awards and recognition">
+      <span class="rv-logo">Michelin Guide &#9733;&#9733;&#9733;</span>
+      <span class="rv-sep">&middot;</span><span class="rv-logo">World&rsquo;s 50 Best</span>
+      <span class="rv-sep">&middot;</span><span class="rv-logo">Forbes Five-Star</span>
+      <span class="rv-sep">&middot;</span><span class="rv-logo">Cond&eacute; Nast Gold List</span>
+      <span class="rv-sep">&middot;</span><span class="rv-logo">James Beard Foundation</span>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section id="reserve">
+    <div class="res-bg" aria-hidden="true"></div>
+    <div class="res-glow" aria-hidden="true"></div>
+    <div class="res-grid">
+      <div>
+        <span class="lbl rv">Reservations</span>
+        <h2 class="ttl rv d1">Reserve Your<br><em>Table</em></h2>
+        <div class="div-line l rv d2"></div>
+        <p class="rv d3 body-txt">We recommend reserving at least two weeks in advance. For private dining and special occasions, contact us directly.</p>
+        <div class="res-info rv d4">
+          <div class="res-ii"><div class="res-ico" aria-hidden="true">&#9711;</div><div><h4>Dining Hours</h4><p>Lunch: 12:30&ndash;14:30 &middot; Dinner: 19:00&ndash;23:00 &middot; Closed Mondays</p></div></div>
+          <div class="res-ii"><div class="res-ico" aria-hidden="true">&#9990;</div><div><h4>Direct Line</h4><p>+971 4 270 7777 &middot; dining@grandpalace-fourseasons.com</p></div></div>
+          <div class="res-ii"><div class="res-ico" aria-hidden="true">&#8857;</div><div><h4>Dress Code</h4><p>Smart Elegant &middot; Jacket preferred &middot; No sportswear</p></div></div>
+        </div>
+      </div>
+      <form class="res-form rv d2" id="resForm" novalidate>
+        <div class="f-row">
+          <div class="fg"><label for="f-fn">First Name</label><input type="text" id="f-fn" placeholder="Antoine" autocomplete="given-name" required></div>
+          <div class="fg"><label for="f-ln">Last Name</label><input type="text" id="f-ln" placeholder="Dubois" autocomplete="family-name" required></div>
+        </div>
+        <div class="fg"><label for="f-em">Email Address</label><input type="email" id="f-em" placeholder="your@email.com" autocomplete="email" required></div>
+        <div class="fg"><label for="f-ph">Phone Number</label><input type="tel" id="f-ph" placeholder="+971 50 000 0000" autocomplete="tel"></div>
+        <div class="f-row">
+          <div class="fg"><label for="f-dt">Date</label><input type="date" id="f-dt" required></div>
+          <div class="fg"><label for="f-tm">Time</label>
+            <select id="f-tm" required>
+              <option value="">Select time</option>
+              <optgroup label="Lunch"><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option></optgroup>
+              <optgroup label="Dinner"><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option></optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="fg"><label for="f-gs">Guests</label>
+            <select id="f-gs"><option>2 Guests</option><option>1 Guest</option><option>3 Guests</option><option>4 Guests</option><option>5 Guests</option><option>6 Guests</option><option>7&ndash;10 Guests</option><option>Private Dining (10+)</option></select>
+          </div>
+          <div class="fg"><label for="f-lc">Location</label>
+            <select id="f-lc"><option>Four Seasons &mdash; Downtown</option><option>Four Seasons &mdash; DIFC</option></select>
+          </div>
+        </div>
+        <div class="fg"><label for="f-sr">Special Requests</label><textarea id="f-sr" rows="3" placeholder="Anniversary, dietary requirements, private dining preferences..."></textarea></div>
+        <button type="submit" class="btn-sub"><span>Confirm Reservation</span></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="shim ft-shim" aria-hidden="true"></div>
+  <div class="ft">
+    <div class="fb">
+      <h2>The Grand Palace</h2>
+      <span class="fb-sc">Fine Dining at Four Seasons</span>
+      <p>Where the world&rsquo;s finest ingredients meet three decades of culinary mastery. An experience reserved for those who expect nothing less than extraordinary.</p>
+      <div class="fb-est" aria-hidden="true"><div class="fb-est-line"></div><span>Est. 1994</span></div>
+    </div>
+    <div class="fc">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#story">Our Story</a></li><li><a href="#chef">The Chef</a></li>
+        <li><a href="#signature">Signature Dishes</a></li><li><a href="#menu">&Agrave; La Carte Menu</a></li>
+        <li><a href="#ambiance">The Ambiance</a></li><li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Experiences</h4>
+      <ul>
+        <li><a href="#reserve">Reserve a Table</a></li><li><a href="#reserve">Private Dining</a></li>
+        <li><a href="#reserve">Chef&rsquo;s Table</a></li><li><a href="#reserve">Wine Pairing</a></li>
+        <li><a href="#reserve">Special Events</a></li><li><a href="#reserve">Gift Experiences</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Our Locations</h4>
+      <div class="f-locs">
+        <address class="f-loc">
+          <h5>Four Seasons Downtown</h5>
+          <p>The Grand Palace, Level 2<br>Downtown Dubai, UAE</p>
+          <a href="tel:+97142707777">+971 4 270 7777</a>
+        </address>
+        <address class="f-loc">
+          <h5>Four Seasons DIFC</h5>
+          <p>The Grand Palace, Level 5<br>Dubai International Financial Centre</p>
+          <a href="tel:+97142707888">+971 4 270 7888</a>
+        </address>
+      </div>
+    </div>
+  </div>
+  <div class="fb2">
+    <p>&copy; 2026 The Grand Palace &middot; Four Seasons Hotels &amp; Resorts</p>
+    <div class="f-soc">
+      <a href="#" class="soc" aria-label="Instagram">&#9670;</a>
+      <a href="#" class="soc" aria-label="Facebook">f</a>
+      <a href="#" class="soc" aria-label="X / Twitter">&#120143;</a>
+      <a href="#" class="soc" aria-label="TikTok">&#9650;</a>
+    </div>
+    <p class="fb2-tag">Crafted with passion &middot; Served with excellence</p>
+  </div>
+</footer>
+
+<!-- FLOATING ACTIONS -->
+<div class="float-wrap" id="fWrap">
+  <button class="snd-btn" id="sBtn" aria-label="Toggle ambient sound">&#9834;</button>
+  <a href="#reserve" class="float-btn">Reserve Table</a>
+</div>
+
+<!-- RESERVATION MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <div class="modal-ico" aria-hidden="true">&#10022;</div>
+    <h3 id="modal-title">Reservation Confirmed</h3>
+    <div class="div-line"></div>
+    <p>Thank you for choosing The Grand Palace. A confirmation will be sent to your email address. We look forward to welcoming you.</p>
+    <button class="modal-close" id="modalClose">Close</button>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <button class="lb-x" onclick="cLB()" aria-label="Close">&#x2715;</button>
+  <img id="lb-i" src="" alt="">
+</div>
+
+<!-- SCRIPTS: GSAP, Three.js, and Modular JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<script src="js/particles.js" defer></script>
+<script src="js/dish.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
