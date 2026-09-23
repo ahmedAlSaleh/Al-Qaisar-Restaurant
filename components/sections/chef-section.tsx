@@ -78,9 +78,10 @@ export function ChefSection() {
   ];
 
   return (
-    <section id="chef" className="relative min-h-screen flex flex-col justify-center py-28 px-6 md:px-16 bg-[#060606] overflow-hidden">
+    <section id="chef" className="relative min-h-screen flex flex-col justify-center py-28 px-6 md:px-16 bg-[#0a0a0a] overflow-hidden">
       {/* Ambient background lighting */}
-      <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,168,76,0.06)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,168,76,0.08)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -103,7 +104,7 @@ export function ChefSection() {
               </p>
 
               {/* Brigade with Aceternity AnimatedTooltip */}
-              <div className="mb-10 p-5 rounded-xl border border-[#C9A84C]/20 bg-black/50 backdrop-blur-sm max-w-xl">
+              <div className="mb-10 p-5 rounded-xl border border-[#C9A84C]/25 bg-[#141414]/75 backdrop-blur-sm max-w-xl shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-[#C9A84C] block font-medium">
@@ -124,7 +125,7 @@ export function ChefSection() {
                 {awards.map((award, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-3.5 p-3.5 rounded-lg border border-[#C9A84C]/15 bg-black/40 backdrop-blur-sm transition-all duration-300 hover:border-[#C9A84C]/40 hover:bg-[#C9A84C]/5"
+                    className="flex items-center gap-3.5 p-3.5 rounded-lg border border-[#C9A84C]/20 bg-[#141414]/65 backdrop-blur-sm transition-all duration-300 hover:border-[#C9A84C]/45 hover:bg-[#C9A84C]/10"
                   >
                     <div className="w-9 h-9 rounded-md border border-[#C9A84C]/60 flex items-center justify-center text-[#C9A84C] text-sm font-serif shrink-0 shadow-[0_0_8px_rgba(201,168,76,0.2)]">
                       {award.icon}
@@ -144,7 +145,7 @@ export function ChefSection() {
           {/* Right: Aceternity DirectionAwareHover Chef Portrait */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <ScrollReveal>
-              <div className="p-3 rounded-2xl border border-[#C9A84C]/25 bg-black/70 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(201,168,76,0.1)]">
+              <div className="p-3 rounded-2xl border border-[#C9A84C]/30 bg-[#141414]/85 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_30px_rgba(201,168,76,0.12)]">
                 <DirectionAwareHover
                   imageUrl="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80&auto=format&fit=crop"
                   className="w-full sm:w-[360px] md:w-[400px] h-[480px] sm:h-[540px] rounded-xl"
@@ -193,7 +194,7 @@ export function ChefSection() {
             {kitchenAction.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-[#C9A84C]/20 bg-black/60 shadow-[0_6px_25px_rgba(0,0,0,0.7)]"
+                className="group relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-[#C9A84C]/25 bg-[#141414]/80 shadow-[0_6px_25px_rgba(0,0,0,0.6)]"
               >
                 <Image
                   src={item.image}
@@ -203,7 +204,7 @@ export function ChefSection() {
                   placeholder="blur"
                   blurDataURL={GOLD_BLUR_DATA_URL}
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover brightness-[0.72] transition-transform duration-[400ms] ease-out group-hover:scale-105 group-hover:brightness-[0.90]"
+                  className="object-cover brightness-[0.85] transition-transform duration-[400ms] ease-out group-hover:scale-105 group-hover:brightness-[0.98]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent p-5 flex flex-col justify-end">
                   <span className="text-[9px] uppercase tracking-[0.25em] text-[#C9A84C] font-medium mb-1">

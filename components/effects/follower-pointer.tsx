@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue, useReducedMotion } from "framer-motion";
+import { motion, useSpring, useMotionValue, useReducedMotion } from "motion/react";
 
 export function FollowerPointer() {
   const shouldReduceMotion = useReducedMotion();
@@ -11,9 +11,15 @@ export function FollowerPointer() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  const springConfig = { damping: 28, stiffness: 300, mass: 0.2 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
+  // Fast direct follower for central dot
+  const leadSpring = { damping: 35, stiffness: 600, mass: 0.1 };
+  const leadX = useSpring(mouseX, leadSpring);
+  const leadY = useSpring(mouseY, leadSpring);
+
+  // Smooth spring-follow for trailing gold dot
+  const trailSpring = { damping: 24, stiffness: 280, mass: 0.2 };
+  const trailX = useSpring(mouseX, trailSpring);
+  const trailY = useSpring(mouseY, trailSpring);
 
   useEffect(() => {
     // Only activate on devices with a fine pointer (desktop mouse/trackpad)
@@ -47,36 +53,55 @@ export function FollowerPointer() {
     };
   }, [mouseX, mouseY]);
 
-  if (!isDesktop || shouldReduceMotion) return null;
+  if (!isDesktop) return null;
 
   return (
     <>
-      {/* Central Precision Gold Dot */}
+      {/* 1. Trailing Gold Dot (spring-follow, blend-mode: screen, desktop only) */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-[#C9A84C]"
+        className="pointer-events-none fixed top-0 left-0 z-[9998] rounded-full bg-gradient-to-br from-[#F5E4A8] via-[#D4AF37] to-[#C9A84C] shadow-[0_0_18px_rgba(212,175,55,0.75)]"
         style={{
-          x: mouseX,
-          y: mouseY,
+          x: trailX,
+          y: trailY,
           translateX: "-50%",
           translateY: "-50%",
-          width: isHovered ? 12 : 8,
-          height: isHovered ? 12 : 8,
+          width: isHovered ? 26 : 14,
+          height: isHovered ? 26 : 14,
+          mixBlendMode: "screen",
+          opacity: shouldReduceMotion ? 0.4 : 0.85,
         }}
-        transition={{ type: "spring", stiffness: 450, damping: 30 }}
+        transition={{ type: "spring", stiffness: 350, damping: 25 }}
       />
 
-      {/* Trailing Fluid Aura Ring */}
+      {/* 2. Central Precision Dot */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-[9998] rounded-full border border-[#C9A84C]/50 bg-[#C9A84C]/5 shadow-[0_0_12px_rgba(201,168,76,0.2)]"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-[#F5F0E8] shadow-[0_0_8px_rgba(255,255,255,0.9)]"
         style={{
-          x: smoothX,
-          y: smoothY,
+          x: leadX,
+          y: leadY,
+          translateX: "-50%",
+          translateY: "-50%",
+          width: isHovered ? 8 : 5,
+          height: isHovered ? 8 : 5,
+        }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      />
+
+      {/* 3. Soft fluid aura ring */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none fixed top-0 left-0 z-[9997] rounded-full border border-[#C9A84C]/45 shadow-[0_0_16px_rgba(201,168,76,0.2)]"
+        style={{
+          x: trailX,
+          y: trailY,
           translateX: "-50%",
           translateY: "-50%",
           width: isHovered ? 52 : 36,
           height: isHovered ? 52 : 36,
+          mixBlendMode: "screen",
+          opacity: shouldReduceMotion ? 0.25 : 0.6,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
       />

@@ -92,9 +92,11 @@ export function SignatureSection() {
   ];
 
   return (
-    <section id="signature" className="py-28 px-6 md:px-16 bg-black relative overflow-hidden">
-      {/* Ambient background light */}
-      <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,168,76,0.05)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+    <section id="signature" className="py-28 px-6 md:px-16 bg-[#080808] relative overflow-hidden">
+      {/* Ambient background light — stronger gold warmth */}
+      <div className="absolute top-0 left-0 right-0 h-64 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,168,76,0.08)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(201,168,76,0.05)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-16">
@@ -133,9 +135,9 @@ export function SignatureSection() {
                       placeholder="blur"
                       blurDataURL={GOLD_BLUR_DATA_URL}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover brightness-[0.78] transition-all duration-[400ms] ease-out group-hover/bento:scale-105 group-hover/bento:brightness-[0.95]"
+                      className="object-cover brightness-[0.88] transition-all duration-[400ms] ease-out group-hover/bento:scale-105 group-hover/bento:brightness-[1.0]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                   </div>
                 }
               />

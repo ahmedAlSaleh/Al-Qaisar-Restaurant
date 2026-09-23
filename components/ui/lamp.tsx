@@ -26,7 +26,7 @@ export const LampContainer = ({
           viewport={{ once: true }}
           transition={{
             delay: shouldReduceMotion ? 0 : 0.2,
-            duration: shouldReduceMotion ? 0 : 0.8,
+            duration: shouldReduceMotion ? 0.35 : 0.8,
             ease: "easeInOut",
           }}
           style={{
@@ -43,7 +43,7 @@ export const LampContainer = ({
           viewport={{ once: true }}
           transition={{
             delay: shouldReduceMotion ? 0 : 0.2,
-            duration: shouldReduceMotion ? 0 : 0.8,
+            duration: shouldReduceMotion ? 0.35 : 0.8,
             ease: "easeInOut",
           }}
           style={{

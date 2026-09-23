@@ -13,19 +13,22 @@ export function RoyalDishCanvas() {
     const container = canvas.parentElement;
     if (!container) return;
 
-    let width = container.offsetWidth;
-    let height = container.offsetHeight;
+    let width = container.offsetWidth || 400;
+    let height = container.offsetHeight || 320;
+
+
+
 
     const renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
-      antialias: true,
-      powerPreference: "high-performance",
+      antialias: false,
+      powerPreference: "low-power",
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.0));
     renderer.setSize(width, height);
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
@@ -37,8 +40,8 @@ export function RoyalDishCanvas() {
     const keyLight = new THREE.DirectionalLight(0xffd700, 1.35);
     keyLight.position.set(3, 5, 3);
     keyLight.castShadow = true;
-    keyLight.shadow.mapSize.width = 512;
-    keyLight.shadow.mapSize.height = 512;
+    keyLight.shadow.mapSize.width = 256;
+    keyLight.shadow.mapSize.height = 256;
     scene.add(keyLight);
 
     const fillLight = new THREE.PointLight(0xffaa44, 0.7, 10);
@@ -145,12 +148,11 @@ export function RoyalDishCanvas() {
     // Beluga Caviar pearls
     for (let i = 0; i < 8; i++) {
       const caviar = new THREE.Mesh(
-        new THREE.SphereGeometry(0.038, 8, 8),
-        new THREE.MeshPhysicalMaterial({
+        new THREE.SphereGeometry(0.038, 6, 6),
+        new THREE.MeshStandardMaterial({
           color: 0x050505,
           roughness: 0.18,
           metalness: 0.3,
-          clearcoat: 1,
         })
       );
       caviar.position.set(
@@ -187,14 +189,18 @@ export function RoyalDishCanvas() {
     window.addEventListener("mouseup", onMouseUp);
     window.addEventListener("mousemove", onMouseMove, { passive: true });
 
-    let isVisible = false;
+    let isVisible = true;
+    const fallbackTimer = setTimeout(() => {
+      isVisible = true;
+    }, 2000);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
       },
-      { threshold: 0.05 }
+      { threshold: 0.02 }
     );
-    observer.observe(canvas);
+    observer.observe(container);
 
     let deltaFrame = 0;
     let animId: number;
@@ -219,8 +225,8 @@ export function RoyalDishCanvas() {
 
     const onResize = () => {
       if (!container) return;
-      width = container.offsetWidth;
-      height = container.offsetHeight;
+      width = container.offsetWidth || 400;
+      height = container.offsetHeight || 320;
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
@@ -228,6 +234,7 @@ export function RoyalDishCanvas() {
     window.addEventListener("resize", onResize, { passive: true });
 
     return () => {
+      clearTimeout(fallbackTimer);
       cancelAnimationFrame(animId);
       observer.disconnect();
       canvas.removeEventListener("mousedown", onMouseDown);

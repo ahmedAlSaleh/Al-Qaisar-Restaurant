@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Clock, Phone, Shirt, CheckCircle } from "lucide-react";
 import { ScrollReveal } from "@/components/effects/scroll-reveal";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 
 export function ReserveSection() {
@@ -29,9 +28,10 @@ export function ReserveSection() {
   };
 
   return (
-    <section id="reserve" className="relative py-28 px-6 md:px-16 bg-[#070707] overflow-hidden">
-      {/* Aceternity Background Beams (Luminous golden rays) */}
-      <BackgroundBeams className="opacity-25 pointer-events-none z-0" />
+    <section id="reserve" className="relative py-28 px-6 md:px-16 bg-[#080808] overflow-hidden">
+      {/* Ambient luxury lighting (CSS, zero GPU overhead) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-80 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,168,76,0.06)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Reservation Information */}
@@ -99,7 +99,7 @@ export function ReserveSection() {
         </div>
 
         {/* Reservation Form */}
-        <div className="rounded-2xl border border-[#C9A84C]/20 bg-black/60 backdrop-blur-xl p-8 sm:p-10 shadow-2xl">
+        <div className="rounded-2xl border border-[#C9A84C]/30 bg-[#141414]/90 backdrop-blur-xl p-8 sm:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.8),0_0_24px_rgba(201,168,76,0.1)]">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
@@ -168,7 +168,7 @@ export function ReserveSection() {
                   Time
                 </label>
                 <select
-                  className="flex h-11 w-full rounded-md border border-[#C9A84C]/25 bg-black/40 px-3.5 py-2 text-sm text-[#F5F0E8] font-light focus:border-[#C9A84C] focus:outline-none"
+                  className="flex h-11 w-full rounded-md border border-[#C9A84C]/25 bg-[#1c1c1c]/80 px-3.5 py-2 text-sm text-[#F5F0E8] font-light focus:border-[#C9A84C] focus:outline-none"
                   value={formData.time}
                   onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                 >
@@ -195,7 +195,7 @@ export function ReserveSection() {
                   Guests
                 </label>
                 <select
-                  className="flex h-11 w-full rounded-md border border-[#C9A84C]/25 bg-black/40 px-3.5 py-2 text-sm text-[#F5F0E8] font-light focus:border-[#C9A84C] focus:outline-none"
+                  className="flex h-11 w-full rounded-md border border-[#C9A84C]/25 bg-[#1c1c1c]/80 px-3.5 py-2 text-sm text-[#F5F0E8] font-light focus:border-[#C9A84C] focus:outline-none"
                   value={formData.guests}
                   onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
                 >
@@ -214,7 +214,7 @@ export function ReserveSection() {
                   Location
                 </label>
                 <select
-                  className="flex h-11 w-full rounded-md border border-[#C9A84C]/25 bg-black/40 px-3.5 py-2 text-sm text-[#F5F0E8] font-light focus:border-[#C9A84C] focus:outline-none"
+                  className="flex h-11 w-full rounded-md border border-[#C9A84C]/25 bg-[#1c1c1c]/80 px-3.5 py-2 text-sm text-[#F5F0E8] font-light focus:border-[#C9A84C] focus:outline-none"
                   value={formData.location}
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                 >
@@ -233,7 +233,7 @@ export function ReserveSection() {
                 placeholder="Dietary requirements, anniversary celebration, chef's table preference..."
                 value={formData.requests}
                 onChange={(e) => setFormData({ ...formData, requests: e.target.value })}
-                className="w-full rounded-md border border-[#C9A84C]/25 bg-black/40 p-3.5 text-sm text-[#F5F0E8] font-light placeholder:text-[#F5F0E8]/20 focus:border-[#C9A84C] focus:outline-none"
+                className="w-full rounded-md border border-[#C9A84C]/25 bg-[#1c1c1c]/80 p-3.5 text-sm text-[#F5F0E8] font-light placeholder:text-[#F5F0E8]/30 focus:border-[#C9A84C] focus:outline-none"
               />
             </div>
 
@@ -242,7 +242,7 @@ export function ReserveSection() {
               type="submit"
               borderRadius="0.5rem"
               containerClassName="w-full mt-4 h-12"
-              className="bg-black/90 text-[#F5F0E8] hover:text-[#C9A84C] font-serif tracking-[0.2em] text-xs transition-colors"
+              className="bg-[#181818] text-[#F5F0E8] hover:text-[#C9A84C] font-serif tracking-[0.2em] text-xs transition-colors"
               duration={3500}
             >
               Confirm Reservation Request

@@ -13,11 +13,12 @@ export function Footer() {
     "relative inline-block text-left hover:text-[#C9A84C] transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 hover:after:w-full after:h-[1px] after:bg-[#C9A84C] after:transition-all after:duration-300";
 
   return (
-    <footer className="relative bg-[#040404] border-t border-[#C9A84C]/15 pt-20 pb-12 px-6 md:px-16 text-[#F5F0E8] overflow-hidden">
-      {/* Golden top gradient beam */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C]/50 to-transparent pointer-events-none" />
+    <footer className="relative bg-[#070707] border-t border-[#C9A84C]/20 pt-20 pb-12 px-6 md:px-16 text-[#F5F0E8] overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C]/60 to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.07)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-[#C9A84C]/15">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-[#C9A84C]/15 relative z-10">
         {/* Brand */}
         <div className="flex flex-col gap-3">
           <h2 className="font-serif text-2xl text-[#C9A84C] font-light tracking-wide">

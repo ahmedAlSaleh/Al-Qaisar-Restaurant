@@ -30,11 +30,12 @@ export const CardContainer = ({
   const shouldReduceMotion = useReducedMotion();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current || shouldReduceMotion) return;
+    if (!containerRef.current) return;
     const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / 25;
-    const y = (e.clientY - top - height / 2) / 25;
+    const divisor = shouldReduceMotion ? 65 : 25;
+    const x = (e.clientX - left - width / 2) / divisor;
+    const y = (e.clientY - top - height / 2) / divisor;
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 

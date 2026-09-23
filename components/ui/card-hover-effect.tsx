@@ -35,10 +35,10 @@ export const HoverEffect = ({
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
-            {hoveredIndex === idx && !shouldReduceMotion && (
+            {hoveredIndex === idx && (
               <motion.span
                 className="absolute inset-0 h-full w-full bg-[#C9A84C]/15 border border-[#C9A84C]/35 block rounded-2xl shadow-[0_0_25px_rgba(201,168,76,0.12)]"
-                layoutId="hoverBackground"
+                layoutId={shouldReduceMotion ? undefined : "hoverBackground"}
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,

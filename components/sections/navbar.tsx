@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Menu, X, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,8 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,19 +63,36 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className="relative text-[11px] uppercase tracking-[0.24em] text-[#F5F0E8]/80 hover:text-[#C9A84C] transition-colors py-1 group"
-            >
-              {link.label}
-              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C9A84C] transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
+        {/* Desktop Links with layoutId animated gold underline */}
+        <div
+          className="hidden lg:flex items-center gap-8"
+          onMouseLeave={() => setHoveredLink(null)}
+        >
+          {navLinks.map((link) => {
+            const isHovered = hoveredLink === link.href;
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                onMouseEnter={() => setHoveredLink(link.href)}
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="relative text-[11px] uppercase tracking-[0.24em] text-[#F5F0E8]/80 hover:text-[#C9A84C] transition-colors py-1.5 group"
+              >
+                <span className="relative z-10">{link.label}</span>
+                {isHovered && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent shadow-[0_0_10px_rgba(201,168,76,0.85)]"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  />
+                )}
+              </a>
+            );
+          })}
         </div>
 
         {/* Action Button */}
@@ -100,38 +120,64 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Drawer */}
-      {isMobileOpen && (
-        <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-6 p-8 lg:hidden animate-in fade-in-0 duration-300">
-          <button
-            onClick={() => setIsMobileOpen(false)}
-            className="absolute top-6 right-6 text-[#C9A84C] p-2"
+      <AnimatePresence>
+        {isMobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-6 p-8 lg:hidden"
           >
-            <X className="h-7 w-7" />
-          </button>
-          <div className="flex flex-col items-center gap-5">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="font-serif text-2xl font-light text-[#F5F0E8] hover:text-[#C9A84C] transition-colors"
+            <button
+              onClick={() => setIsMobileOpen(false)}
+              className="absolute top-6 right-6 text-[#C9A84C] p-2"
+              aria-label="Close menu"
+            >
+              <X className="h-7 w-7" />
+            </button>
+            <div className="flex flex-col items-center gap-5">
+              {navLinks.map((link, idx) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.05 + idx * 0.05,
+                    duration: 0.4,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className="font-serif text-2xl font-light text-[#F5F0E8] hover:text-[#C9A84C] transition-colors"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.05 + navLinks.length * 0.05,
+                duration: 0.4,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <Button
+                variant="default"
+                className="mt-6"
+                onClick={() => {
+                  setIsMobileOpen(false);
+                  document.getElementById("reserve")?.scrollIntoView({ behavior: "smooth" });
+                }}
               >
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <Button
-            variant="default"
-            className="mt-6"
-            onClick={() => {
-              setIsMobileOpen(false);
-              document.getElementById("reserve")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Reserve a Table
-          </Button>
-        </div>
-      )}
+                Reserve a Table
+              </Button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

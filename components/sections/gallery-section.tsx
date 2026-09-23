@@ -128,9 +128,10 @@ export function GallerySection() {
   ];
 
   return (
-    <section id="gallery" className="py-28 px-6 md:px-16 bg-black relative overflow-hidden">
+    <section id="gallery" className="py-28 px-6 md:px-16 bg-[#080808] relative overflow-hidden">
       {/* Ambient background light */}
-      <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,168,76,0.05)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,168,76,0.07)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-16">
@@ -153,7 +154,7 @@ export function GallerySection() {
               <BlurFade delay={0.04 * i} inView>
                 <div
                   onClick={() => setSelectedImage(img.src)}
-                  className={`relative ${img.heightClass} rounded-2xl overflow-hidden border border-[#C9A84C]/20 cursor-pointer group shadow-[0_4px_20px_rgba(0,0,0,0.6)]`}
+                  className={`relative ${img.heightClass} rounded-2xl overflow-hidden border border-[#C9A84C]/25 cursor-pointer group shadow-[0_4px_24px_rgba(0,0,0,0.5)]`}
                 >
                   <Image
                     src={img.src}
@@ -163,7 +164,7 @@ export function GallerySection() {
                     placeholder="blur"
                     blurDataURL={GOLD_BLUR_DATA_URL}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover brightness-[0.75] grayscale-[0.10] transition-transform duration-[400ms] ease-out group-hover:scale-105 group-hover:brightness-100 group-hover:grayscale-0"
+                    className="object-cover brightness-[0.88] transition-transform duration-[400ms] ease-out group-hover:scale-105 group-hover:brightness-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5">
                     <span className="text-[10px] uppercase tracking-[0.25em] text-[#C9A84C] font-medium self-end border border-[#C9A84C]/30 px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-sm">

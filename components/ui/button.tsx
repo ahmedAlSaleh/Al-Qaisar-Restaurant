@@ -9,19 +9,19 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#C9A84C] text-black hover:bg-[#D4AF37] hover:shadow-[0_8px_24px_rgba(201,168,76,0.35)] active:scale-[0.98]",
+          "bg-[#C9A84C] text-black hover:bg-[#D4AF37] hover:shadow-[0_8px_24px_rgba(201,168,76,0.35)] active:scale-[0.97]",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 active:scale-[0.97]",
         outline:
-          "border border-[#C9A84C]/50 text-[#C9A84C] bg-transparent hover:bg-[#C9A84C]/10 hover:border-[#C9A84C] active:scale-[0.98]",
+          "border border-[#C9A84C]/50 text-[#C9A84C] bg-transparent hover:bg-[#C9A84C]/10 hover:border-[#C9A84C] active:scale-[0.97]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 active:scale-[0.97]",
         ghost:
-          "text-[#F5F0E8] hover:bg-[#C9A84C]/10 hover:text-[#C9A84C]",
+          "text-[#F5F0E8] hover:bg-[#C9A84C]/10 hover:text-[#C9A84C] active:scale-[0.97]",
         link:
           "text-[#C9A84C] underline-offset-4 hover:underline",
         "premium-glow":
-          "relative overflow-hidden bg-gradient-to-r from-[#C9A84C] via-[#E2C775] to-[#C9A84C] text-black shadow-[0_0_24px_rgba(201,168,76,0.4)] hover:shadow-[0_0_36px_rgba(201,168,76,0.6)] hover:scale-[1.02] active:scale-[0.98]",
+          "relative overflow-hidden bg-gradient-to-r from-[#C9A84C] via-[#E2C775] to-[#C9A84C] text-black shadow-[0_0_24px_rgba(201,168,76,0.4)] hover:shadow-[0_0_36px_rgba(201,168,76,0.6)] hover:scale-[1.02] active:scale-[0.97]",
       },
       size: {
         default: "h-11 px-6 py-2.5",

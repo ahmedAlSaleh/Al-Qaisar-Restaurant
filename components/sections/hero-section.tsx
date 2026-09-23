@@ -2,14 +2,15 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useReducedMotion } from "motion/react";
 import { Spotlight } from "@/components/ui/spotlight";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { Magnetic } from "@/components/ui/magnetic";
 import { HeroParticlesCanvas } from "@/components/three/hero-particles-canvas";
+import { ShimmerText } from "@/components/effects/shimmer-text";
+import { TextReveal } from "@/components/effects/text-reveal";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { GOLD_BLUR_DATA_URL } from "@/lib/utils";
 
@@ -28,11 +29,12 @@ export function HeroSection() {
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDesktop || shouldReduceMotion) return;
+    if (!isDesktop) return;
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
-    const xPct = (clientX / innerWidth - 0.5) * 16;
-    const yPct = (clientY / innerHeight - 0.5) * 16;
+    const intensity = shouldReduceMotion ? 4 : 16;
+    const xPct = (clientX / innerWidth - 0.5) * intensity;
+    const yPct = (clientY / innerHeight - 0.5) * intensity;
     tiltX.set(yPct);
     tiltY.set(-xPct);
   };
@@ -72,14 +74,18 @@ export function HeroSection() {
           sizes="100vw"
           placeholder="blur"
           blurDataURL={GOLD_BLUR_DATA_URL}
-          className="object-cover brightness-[0.20] scale-105 transition-transform duration-[15000ms] ease-out hover:scale-100"
+          className="object-cover brightness-[0.42] scale-105 transition-transform duration-[15000ms] ease-out hover:scale-100"
         />
         {/* Radial vignette mask */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,8,8,0.5)_55%,rgba(8,8,8,0.98)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,8,8,0.45)_55%,rgba(8,8,8,0.82)_100%)]" />
       </div>
 
-      {/* 4. Aceternity Background Beams (Atmospheric luminous rays) */}
-      <BackgroundBeams className="opacity-40 z-[2] pointer-events-none" />
+      {/* 4. Subtle gold atmospheric beams (CSS-only, no JS animation) */}
+      <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[conic-gradient(from_270deg_at_50%_0%,transparent_25%,rgba(201,168,76,0.07)_50%,transparent_75%)] opacity-70" />
+        <div className="absolute top-0 left-1/3 w-[300px] h-[350px] bg-[linear-gradient(180deg,rgba(212,175,55,0.06)_0%,transparent_100%)] rotate-[-8deg]" />
+        <div className="absolute top-0 right-1/3 w-[280px] h-[320px] bg-[linear-gradient(180deg,rgba(212,175,55,0.05)_0%,transparent_100%)] rotate-[8deg]" />
+      </div>
 
       {/* 5. Hero Content Layer */}
       <div className="relative z-[10] text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
@@ -111,7 +117,7 @@ export function HeroSection() {
                   colorTo="#C9A84C"
                   className="font-script font-normal"
                 >
-                  Al-Qaisar
+                  <ShimmerText shimmerColor="#F5F0E8">Al-Qaisar</ShimmerText>
                 </AnimatedGradientText>
               </em>
               <span className="block text-xs sm:text-sm tracking-[0.45em] text-[#C9A84C]/80 font-sans uppercase mt-3">
@@ -124,7 +130,7 @@ export function HeroSection() {
         {/* Subtitle with BlurFade */}
         <BlurFade delay={0.3} direction="up" blur="0px">
           <p className="text-xs sm:text-sm tracking-[0.32em] text-[#F5F0E8]/65 uppercase max-w-2xl mb-10 font-light leading-relaxed">
-            Where Culinary Artistry Meets Architectural Magnificence
+            <TextReveal text="Where Culinary Artistry Meets Architectural Magnificence" delay={0.3} />
           </p>
         </BlurFade>
 

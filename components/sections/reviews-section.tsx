@@ -47,7 +47,8 @@ export function ReviewsSection() {
   return (
     <section id="reviews" className="py-28 px-4 md:px-12 bg-[#080808] relative overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse,rgba(201,168,76,0.06)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-80 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse,rgba(201,168,76,0.09)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-16">
@@ -82,7 +83,7 @@ export function ReviewsSection() {
               {awards.map((award, i) => (
                 <div
                   key={i}
-                  className="mx-4 px-5 py-2.5 rounded-full border border-[#C9A84C]/25 bg-black/60 backdrop-blur-sm text-xs font-serif text-[#F5F0E8] tracking-widest flex items-center gap-2 hover:border-[#C9A84C]/60 transition-colors"
+                  className="mx-4 px-5 py-2.5 rounded-full border border-[#C9A84C]/30 bg-[#141414]/85 backdrop-blur-sm text-xs font-serif text-[#F5F0E8] tracking-widest flex items-center gap-2 hover:border-[#C9A84C]/60 hover:bg-[#181818] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
                 >
                   <span className="text-[#C9A84C]">◆</span>
                   <span>{award}</span>

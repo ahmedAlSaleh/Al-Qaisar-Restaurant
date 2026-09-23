@@ -1,33 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { GrainOverlay } from "@/components/effects/grain-overlay";
 import { CommandMenu } from "@/components/effects/command-menu";
 import { FollowerPointer } from "@/components/effects/follower-pointer";
 import { PageTransition } from "@/components/effects/page-transition";
 import { Navbar } from "@/components/sections/navbar";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-script",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Al-Qaisar | Four Seasons Fine Dining Experience",
@@ -52,8 +30,16 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${cormorant.variable} ${greatVibes.variable} dark scroll-smooth`}
+      className="dark scroll-smooth"
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="bg-background text-foreground font-sans antialiased overflow-x-hidden selection:bg-[#C9A84C]/30 selection:text-[#F5F0E8]">
         <ThemeProvider
           attribute="class"
@@ -62,7 +48,6 @@ export default function RootLayout({
           enableSystem={false}
         >
           {/* STEP 2: Global Shell Elements */}
-          <ScrollProgress />
           <GrainOverlay />
           <FollowerPointer />
           <CommandMenu />

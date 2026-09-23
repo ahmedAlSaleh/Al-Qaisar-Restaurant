@@ -150,7 +150,7 @@ export function MenuSection() {
       {items.map((item, idx) => (
         <div
           key={idx}
-          className="flex items-center gap-4 p-4 rounded-xl border border-[#C9A84C]/15 bg-[#0D0D0D]/90 backdrop-blur-sm transition-all duration-300 hover:border-[#C9A84C]/50 hover:bg-[#C9A84C]/5 group"
+          className="flex items-center gap-4 p-4 rounded-xl border border-[#C9A84C]/20 bg-[#141414]/90 backdrop-blur-sm transition-all duration-300 hover:border-[#C9A84C]/50 hover:bg-[#C9A84C]/10 group shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
         >
           <div className="relative w-20 h-16 rounded-lg overflow-hidden shrink-0 border border-[#C9A84C]/25">
             <Image
@@ -188,9 +188,10 @@ export function MenuSection() {
   ));
 
   return (
-    <section id="menu" className="py-28 px-6 md:px-16 bg-[#0B0B0B] relative overflow-hidden">
+    <section id="menu" className="py-28 px-6 md:px-16 bg-[#080808] relative overflow-hidden">
       {/* Ambient background light */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,168,76,0.05)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-80 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,168,76,0.07)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-14">
@@ -205,7 +206,7 @@ export function MenuSection() {
 
         {/* Motion Primitives AnimatedBackground Morphing Pill Tabs */}
         <div className="flex justify-center mb-10">
-          <div className="flex items-center p-1.5 rounded-2xl border border-[#C9A84C]/25 bg-black/80 backdrop-blur-md">
+          <div className="flex items-center p-1.5 rounded-2xl border border-[#C9A84C]/30 bg-[#141414]/90 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
             <AnimatedBackground
               defaultValue={categories[0].id}
               className="rounded-xl bg-[#C9A84C] shadow-[0_0_15px_rgba(201,168,76,0.4)]"

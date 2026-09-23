@@ -31,15 +31,16 @@ export function RoyalTableSection() {
   ];
 
   return (
-    <section id="table" className="relative min-h-screen flex items-center py-24 px-6 md:px-16 bg-[#0B0B0B] overflow-hidden">
+    <section id="table" className="relative min-h-screen flex items-center py-24 px-6 md:px-16 bg-[#080808] overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[radial-gradient(circle,rgba(201,168,76,0.06)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[radial-gradient(circle,rgba(201,168,76,0.10)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* 3D Canvas Presentation inside Aceternity 3D Card Container */}
-        <div className="relative flex flex-col items-center justify-center w-full">
-          <CardContainer className="inter-var w-full" containerClassName="py-4 w-full">
-            <CardBody className="relative group/card border border-[#C9A84C]/25 bg-black/60 backdrop-blur-md w-full sm:w-[480px] lg:w-[520px] h-[460px] sm:h-[500px] rounded-2xl p-6 flex flex-col items-center justify-between shadow-[0_10px_35px_rgba(0,0,0,0.8),0_0_20px_rgba(201,168,76,0.1)]">
+        <div className="relative flex flex-col items-center justify-center w-full min-h-[600px]">
+          <CardContainer className="inter-var w-full min-h-[550px]" containerClassName="py-4 w-full min-h-[600px]">
+            <CardBody className="relative group/card border border-[#C9A84C]/30 bg-[#141414]/85 backdrop-blur-md w-full sm:w-[480px] lg:w-[520px] h-[460px] sm:h-[500px] rounded-2xl p-6 flex flex-col items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.8),0_0_24px_rgba(201,168,76,0.15)]">
               {/* Card top badge */}
               <div className="w-full flex items-center justify-between z-20">
                 <CardItem translateZ="30" className="text-[10px] uppercase tracking-[0.3em] text-[#C9A84C] font-medium">
@@ -51,7 +52,7 @@ export function RoyalTableSection() {
               </div>
 
               {/* 3D WebGL Dish with translation depth */}
-              <CardItem translateZ="60" className="w-full h-[320px] sm:h-[350px] relative flex items-center justify-center">
+              <CardItem translateZ="60" className="w-full h-[320px] sm:h-[350px] min-h-[320px] relative flex items-center justify-center">
                 <RoyalDishCanvas />
 
                 {/* Realistic rising steam effect */}

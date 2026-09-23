@@ -102,7 +102,8 @@ export function StorySection() {
   return (
     <section id="story" className="relative py-28 px-6 md:px-16 bg-[#080808] overflow-hidden">
       {/* Subtle ambient light */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle,rgba(201,168,76,0.06)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle,rgba(201,168,76,0.08)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,168,76,0.06)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
 
       <TracingBeam className="px-4">
         <div className="max-w-5xl mx-auto flex flex-col gap-12">
@@ -124,29 +125,29 @@ export function StorySection() {
 
             {/* Accomplishment Badges */}
             <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
-              <div className="p-4 text-center rounded-xl border border-[#C9A84C]/20 bg-black/60 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+              <div className="p-4 text-center rounded-xl border border-[#C9A84C]/25 bg-[#141414]/85 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                 <span className="font-serif text-3xl font-light text-[#C9A84C] block">
                   <Counter to={30} suffix="+" />
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-[#F5F0E8]/40 mt-1 block font-medium">
+                <span className="text-[9px] uppercase tracking-[0.25em] text-[#F5F0E8]/50 mt-1 block font-medium">
                   Years Excellence
                 </span>
               </div>
 
-              <div className="p-4 text-center rounded-xl border border-[#C9A84C]/20 bg-black/60 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+              <div className="p-4 text-center rounded-xl border border-[#C9A84C]/25 bg-[#141414]/85 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                 <span className="font-serif text-3xl font-light text-[#C9A84C] block">
                   3★
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-[#F5F0E8]/40 mt-1 block font-medium">
+                <span className="text-[9px] uppercase tracking-[0.25em] text-[#F5F0E8]/50 mt-1 block font-medium">
                   Michelin Stars
                 </span>
               </div>
 
-              <div className="p-4 text-center rounded-xl border border-[#C9A84C]/20 bg-black/60 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+              <div className="p-4 text-center rounded-xl border border-[#C9A84C]/25 bg-[#141414]/85 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                 <span className="font-serif text-3xl font-light text-[#C9A84C] block">
                   #4
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-[#F5F0E8]/40 mt-1 block font-medium">
+                <span className="text-[9px] uppercase tracking-[0.25em] text-[#F5F0E8]/50 mt-1 block font-medium">
                   World&rsquo;s Best 50
                 </span>
               </div>

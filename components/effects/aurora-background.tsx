@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
@@ -18,7 +18,7 @@ export function AuroraBackground({
   return (
     <div
       className={cn(
-        "relative flex flex-col items-center justify-center bg-black transition-bg",
+        "relative flex flex-col items-center justify-center bg-[#080808] transition-bg",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ export function AuroraBackground({
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -inset-[10px] opacity-40 filter blur-[80px] will-change-transform"
+          className="absolute -inset-[10px] opacity-40 filter blur-[36px] will-change-transform"
           style={{
             background:
               "radial-gradient(ellipse at 50% 20%, rgba(201,168,76,0.22) 0%, rgba(139,105,20,0.12) 35%, transparent 70%), radial-gradient(ellipse at 80% 50%, rgba(212,175,55,0.12) 0%, transparent 60%)",

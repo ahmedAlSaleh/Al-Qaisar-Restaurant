@@ -63,10 +63,11 @@ export function WineSection() {
   ];
 
   return (
-    <section id="wine" className="relative py-28 px-6 md:px-16 bg-black overflow-hidden">
+    <section id="wine" className="relative py-28 px-6 md:px-16 bg-[#080808] overflow-hidden">
       {/* Ambient background wine glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(120,0,24,0.1)_0%,transparent_65%)] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle,rgba(201,168,76,0.05)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(120,0,24,0.12)_0%,transparent_65%)] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle,rgba(201,168,76,0.08)_0%,transparent_70%)] filter blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-48 bg-[radial-gradient(ellipse_at_30%_0%,rgba(201,168,76,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -150,7 +151,7 @@ export function WineSection() {
                   placeholder="blur"
                   blurDataURL={GOLD_BLUR_DATA_URL}
                   sizes="(max-width: 768px) 100vw, 30vw"
-                  className="object-cover brightness-[0.60] transition-transform duration-[400ms] ease-out group-hover:scale-105"
+                  className="object-cover brightness-[0.78] transition-transform duration-[400ms] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
@@ -172,7 +173,7 @@ export function WineSection() {
                   placeholder="blur"
                   blurDataURL={GOLD_BLUR_DATA_URL}
                   sizes="(max-width: 768px) 100vw, 30vw"
-                  className="object-cover brightness-[0.60] transition-transform duration-[400ms] ease-out group-hover:scale-105"
+                  className="object-cover brightness-[0.78] transition-transform duration-[400ms] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
@@ -229,7 +230,7 @@ export function WineSection() {
                     placeholder="blur"
                     blurDataURL={GOLD_BLUR_DATA_URL}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                    className="object-cover brightness-[0.70] transition-transform duration-[400ms] ease-out group-hover:scale-105 group-hover:brightness-[0.90]"
+                    className="object-cover brightness-[0.80] transition-transform duration-[400ms] ease-out group-hover:scale-105 group-hover:brightness-[0.95]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-3.5 flex flex-col justify-end">
                     <span className="font-serif text-sm text-[#F5F0E8] font-normal leading-snug">

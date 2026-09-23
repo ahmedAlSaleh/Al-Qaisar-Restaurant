@@ -78,7 +78,7 @@ export function HeroParticlesCanvas() {
 
     const animate = () => {
       animId = requestAnimationFrame(animate);
-      if (!isVisible) return;
+      if (!isVisible || document.visibilityState === "hidden") return;
 
       frame++;
       particleMesh.rotation.y += 0.00025;
